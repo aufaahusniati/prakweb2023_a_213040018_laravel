@@ -17,6 +17,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    // fillable: field-field mana aja yang boleh diisi
     protected $fillable = [
         'name',
         'email',
