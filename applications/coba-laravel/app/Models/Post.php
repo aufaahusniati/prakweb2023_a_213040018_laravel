@@ -14,6 +14,7 @@ class Post extends Model
 
     // $guardedyang ga boleh di isi
     protected $guarded = ['id'];
+    protected $with = ['category', 'author'];
 
     public function category()
     {
