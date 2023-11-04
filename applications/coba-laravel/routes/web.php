@@ -21,7 +21,8 @@ use App\Models\User;
 Route::get('/', function () {
     // return 'Halaman Home';
     return view('home', [
-        "title" => "Home"
+        "title" => "Home",
+        "active" => 'home'
     ]);
 });
 
@@ -29,6 +30,7 @@ Route::get('/about', function () {
     // return 'Halaman About';
     return view('about', [
         "title" => "About",
+        "active" => 'about',
         "name" => "Aufaa Husniati",
         "email" => "aufaahsnt21@gmail.com",
         "image" => "aufaa.png"
@@ -50,17 +52,5 @@ Route::get('/categories', function () {
 });
 
 
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
-        'title' => "Post By Category : $category->name",
-        "active" => 'categories',
-        'posts' => $category->posts->load('category', 'author')
-    ]);
-});
 
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('posts', [
-        'title' => "Post By Author : $author->name",
-        'posts' => $author->posts->load('category', 'author')
-    ]);
-});
+
