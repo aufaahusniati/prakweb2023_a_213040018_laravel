@@ -19,11 +19,14 @@ class User extends Authenticatable
      */
 
     // fillable: field-field mana aja yang boleh diisi
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'username',
+    //     'email',
+    //     'password',
+    // ];
+
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
