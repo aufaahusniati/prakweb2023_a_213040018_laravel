@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\AdminCategoryController;
 use App\Models\Category;
 
 use Illuminate\Support\Facades\Route;
@@ -61,13 +62,16 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', function() {
     return view('dashboard.index');
-})->middleware('auth');
+    })->middleware('auth');
 
 Route::get('dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])
-->middleware('auth');
+    ->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)
-->middleware('auth');
+    ->middleware('auth');
+
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')
+    ->middleware('admin');
 
 
 
